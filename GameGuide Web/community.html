@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community | GameGuide Hub</title>
+    <style>
+        .community-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .community-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .community-header h1 {
+            color: #fff;
+            font-size: 2rem;
+        }
+        
+        .create-post-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .create-post-btn:hover {
+            background-color: #3e8e41;
+        }
+
+
+.post-form-container {
+    background-color: #252525;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.post-form h3 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-group select {
+    flex: 1;
+    padding: 0.5rem;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.post-form textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 1rem;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #fff;
+    resize: vertical;
+    font-family: inherit;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.post-actions button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cancel-post {
+    background-color: #333;
+    color: #fff;
+}
+
+.cancel-post:hover {
+    background-color: #444;
+}
+
+.submit-post {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.submit-post:hover {
+    background-color: #3e8e41;
+}
+
+.hidden {
+    display: none;
+}
+        .post-form-container {
+            background-color: #252525;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        .post-form textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 1rem;
+            background-color: #333;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            margin-bottom: 1rem;
+            resize: vertical;
+        }
+        
+        .post-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+        
+        .post-actions button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .cancel-post {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .submit-post {
+            background-color: #4CAF50;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        .post {
+            background-color: #252525;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .form-group select {
+            flex: 1;
+            padding: 0.5rem;
+            background-color: #333;
+            border: none;
+            border-radius: 4px;
+            color: white;
+        }
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+        
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .username {
+            font-weight: bold;
+            color: #fff;
+        }
+        
+        .post-time {
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+        
+        .post-content {
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .post-stats {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            color: #aaa;
+        }
+
+.post-category {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.game-tag {
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.game-tag.wuthering-waves {
+    background-color: #6a1b9a;
+    color: white;
+}
+
+.game-tag.genshin-impact {
+    background-color: #ff7043;
+    color: white;
+}
+
+.game-tag.honkai-star-rail {
+    background-color: #2196f3;
+    color: white;
+}
+
+.game-tag.minecraft {
+    background-color: #046a1cd4;
+    color: white;
+}
+
+.game-tag.valorant {
+    background-color: #d80000d4;
+    color: white;
+}
+
+.game-tag.pgr {
+    background-color: #870707d4;
+    color: white;
+}
+
+
+.game-tag.guide {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.game-tag.discussion {
+    background-color: #607d8b;
+    color: white;
+}
+
+.game-tag.question {
+    background-color: #ff9800;
+    color: white;
+}
+
+.game-tag.news {
+    background-color: #f44336;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .votes {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .upvote, .downvote {
+            background: none;
+            border: none;
+            color: #aaa;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .upvote:hover {
+            color: #4CAF50;
+        }
+        
+        .downvote:hover {
+            color: #f44336;
+        }
+        
+        .comments {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .comments:hover {
+            color: #4CAF50;
+        }
+        
+        .comment-section {
+            margin-top: 1.5rem;
+            border-top: 1px solid #333;
+            padding-top: 1.5rem;
+        }
+        
+        .comment-form {
+            margin-bottom: 1.5rem;
+        }
+        
+        .comment-form textarea {
+            width: 100%;
+            min-height: 60px;
+            padding: 0.8rem;
+            background-color: #333;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            resize: vertical;
+        }
+         
+        .submit-comment {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+
+        /* comment section */
+.comment-section {
+    padding-top: 1rem;
+    border-top: 1px solid #333;
+    margin-top: 1rem;
+}
+
+.comment-form {
+    margin-bottom: 1.5rem;
+}
+
+.comment-input {
+    width: 100%;
+    min-height: 80px;
+    padding: 0.8rem;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: white;
+    margin-bottom: 0.5rem;
+    resize: vertical;
+}
+
+.submit-comment {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Comments List */
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.comment {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.comment-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment-username {
+    font-weight: bold;
+    color: #fff;
+}
+
+.comment-time {
+    color: #aaa;
+    font-size: 0.8rem;
+}
+
+.comment-content {
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.like-comment, .reply-comment {
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+}
+
+.like-comment:hover {
+    color: #4CAF50;
+}
+
+.reply-comment:hover {
+    color: #2196F3;
+}
+
+/* nested comments */
+.comment-reply {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    border-left: 2px solid #333;
+    padding-left: 1rem;
+}
+        .comment {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .comment-header .user-avatar {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .comment-content {
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .comment-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .like-comment, .reply-comment {
+            background: none;
+            border: none;
+            color: #aaa;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .like-comment:hover {
+            color: #4CAF50;
+        }
+        
+        .reply-comment:hover {
+            color: #2196F3;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        @media (max-width: 600px) {
+            .community-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .post-stats {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+        </style>
+    <link rel="stylesheet" href="css/ggstyles.css">
+</head>
+<body>
+    <header>
+        <div class="logo"> <h4 style="color:#4CAF50;">GG<span style="color:#ffffff;">uide</span></h4></div>
+        <nav>
+            <ul>
+                <li><a href="GameGuide.html">Home</a></li>
+                <li><a href="guidepage.html">Guides</a></li>
+                <li><a href="community.html" class="active">Community</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="GameGuide.html#contacts">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="login-btn" onclick="location.href='login.html'">Log in</button>
+            <button class="register-btn" onclick="location.href='register.html'">Join for Free</button>
+        </div>
+        
+    </header>
+
+
+
+
+
+
+
+
+    <main class="community-container">
+        <div class="community-header">
+            <h1>Community Threads</h1>
+            <button class="create-post-btn">Create Post</button>
+        </div>
+
+        <div class="post-form-container hidden">
+            <div class="post-form">
+                <h3>Create New Post</h3>
+                <div class="form-group">
+                    <select class="game-select">
+                        <option value="wuthering-waves">Wuthering Waves</option>
+                        <option value="genshin-impact">Genshin Impact</option>
+                        <option value="honkai-star-rail">Honkai: Star Rail</option>
+                        <option value="minecraft">Minecraft</option>
+                        <option value="valorant">Valorant</option>
+                        <option value="pgr">Punishing Gray Raven</option>
+                    </select>
+                    <select class="category-select">
+                        <option value="guide">Guide</option>
+                        <option value="discussion">Discussion</option>
+                        <option value="question">Question</option>
+                        <option value="news">News</option>
+                    </select>
+                </div>
+                <textarea placeholder="What's on your mind?" class="post-content"></textarea>
+                <div class="post-actions">
+                    <button class="cancel-post">Cancel</button>
+                    <button class="submit-post">Post</button>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+
+
+
+
+        <div class="posts-container">
+            <div class="post">
+                <div class="post-header">
+                    <img src="media/user2.png" alt="User Avatar" class="user-avatar">
+                    <div class="user-info">
+                        <span class="username">Saya</span>
+                        <span class="post-time">2 hours ago</span>
+                    </div>
+                    <div class="post-category">
+                        <span class="game-tag wuthering-waves">Wuthering Waves</span>
+                        <span class="game-tag guide">Guide</span>
+                    </div>
+ 
+                    
+                </div>
+                <div class="post-content">
+                    <p>Just discovered an amazing Changli combo! If you time her skill swap right after her basic attack chain, you can cancel the recovery frames and maintain DPS uptime.</p>
+                </div>
+
+
+                <div class="post-stats">
+                    <div class="votes">
+                        <button class="upvote"><span>▲</span></button>
+                        <span class="vote-count">142</span>
+                        <button class="downvote"><span>▼</span></button>
+                    </div>
+                    <div class="comments">
+                        <span>💬 2 comments</span>
+                    </div>
+                </div>
+
+
+                <div class="comment-section hidden">
+                    <div class="comment-form">
+                        <textarea placeholder="Add a comment..."></textarea>
+                        <button class="submit-comment">Comment</button>
+                    </div>
+
+
+
+
+                    
+                    <div class="comments-list">
+                        <div class="comment">
+                            <div class="comment-header">
+                                <img src="media/user1.png" alt="User Avatar" class="user-avatar">
+                                <span class="username">Osaragi</span>
+                            </div>
+                            <div class="comment-content">
+                                <p>This works even better if you pair her with Rover for the resonance effect!</p>
+                            </div>
+                            <div class="comment-actions">
+                                <button class="like-comment">👍 8</button>
+                                <button class="reply-comment">Reply</button>
+                            </div>
+                        </div>
+
+                        
+                        <div class="comment">
+                            <div class="comment-header">
+                                <img src="media/user3.png" alt="User Avatar" class="user-avatar">
+                                <span class="username">YinlinMommy</span>
+                            </div>
+                            <div class="comment-content">
+                                <p>Thanks for the tip! As a new player this is super helpful.</p>
+                            </div>
+                            <div class="comment-actions">
+                                <button class="like-comment">👍 3</button>
+                                <button class="reply-comment">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="post">
+                <div class="post-header">
+                    <img src="media/user1.png" alt="User Avatar" class="user-avatar">
+                    <div class="user-info">
+                        <span class="username">Osaragi</span>
+                        <span class="post-time">5 hours ago</span>
+                    </div>
+                    <div class="post-category">
+                        <span class="game-tag wuthering-waves">Wuthering Waves</span>
+                        <span class="game-tag discussion">Discussion</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>What's everyone's favorite team composition right now? I'm running Changli/Rover/Yinlin and it's been crushing all content.</p>
+                </div>
+
+                <div class="post-stats">
+                    <div class="votes">
+                        <button class="upvote"><span>▲</span></button>
+                        <span class="vote-count">87</span>
+                        <button class="downvote"><span>▼</span></button>
+                    </div>
+                    <div class="comments">
+                        <span>💬 <span class="comment-count">2</span> comments</span>
+                    </div>
+                </div>
+
+                    <div class="comment-section hidden">
+                    <div class="comment-form">
+                        <textarea placeholder="Add a comment..."></textarea>
+                        <button class="submit-comment">Comment</button>
+                    </div>
+                        
+
+                        <div class="comments-list">
+
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <img src="media/user4.png" alt="User" class="comment-avatar">
+                                    <span class="comment-username">ComboMaster</span>
+                                    <span class="comment-time">1 hour ago</span>
+                                </div>
+                                <div class="comment-content">
+                                    <p>This works even better if you pair her with Rover for the resonance effect!</p>
+                                </div>
+                                <div class="comment-actions">
+                                    <button class="like-comment">👍 8</button>
+                                    <button class="reply-comment">Reply</button>
+                                </div>
+                                
+                                <!-- Nested Reply -->
+                                <div class="comment-reply hidden">
+                                    <div class="comment">
+                                        <div class="comment-header">
+                                            <img src="media/user3.jpg" alt="User" class="comment-avatar">
+                                            <span class="comment-username">NewPlayer2024</span>
+                                            <span class="comment-time">45 minutes ago</span>
+                                        </div>
+                                        <div class="comment-content">
+                                            <p>Thanks for the tip! I'll try this combo tonight.</p>
+                                        </div>
+                                        <div class="comment-actions">
+                                            <button class="like-comment">👍 3</button>
+                                            <button class="reply-comment">Reply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <img src="media/user1.png" alt="User" class="comment-avatar">
+                                    <span class="comment-username">Osaragi</span>
+                                    <span class="comment-time">30 minutes ago</span>
+                                </div>
+                                <div class="comment-content">
+                                    <p>Does this work in the Tower of Adversity?</p>
+                                </div>
+                                <div class="comment-actions">
+                                    <button class="like-comment">👍 2</button>
+                                    <button class="reply-comment">Reply</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="GameGuide.html">Home</a>
+            <a href="guidepage.html">Guides</a>
+            <a href="community.html">Community</a>
+            <a href="about.html">About Us</a>
+            <a href="GameGuide.html#contacts">Contact Us</a>
+        </div>
+        <p class="copyright">© 2025 GameGuide. All rights reserved.</p>
+    </footer>
+
+
+
+
+
+
+
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const createPostBtn = document.querySelector('.create-post-btn');
+    const postFormContainer = document.querySelector('.post-form-container');
+    const cancelPostBtn = document.querySelector('.cancel-post');
+    const submitPostBtn = document.querySelector('.submit-post');
+    const postContentInput = document.querySelector('.post-content');
+    const postsContainer = document.querySelector('.posts-container');
+
+
+    createPostBtn.addEventListener('click', function() {
+        postFormContainer.classList.remove('hidden');
+        postContentInput.focus();
+    });
+
+    cancelPostBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        postFormContainer.classList.add('hidden');
+        postContentInput.value = '';
+    });
+
+
+
+
+    submitPostBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const game = document.querySelector('.game-select').value;
+        const category = document.querySelector('.category-select').value;
+        const content = postContentInput.value.trim();
+
+        if (!content) {
+            alert('Please enter some content for your post');
+            return;
+        }
+
+
+        const newPost = createPostElement({
+            username: "NotVeliona", 
+            avatar: "media/user-profile.png",
+            content: content,
+            game: game,
+            category: category,
+            time: "just now",
+            votes: 1,
+            comments: 0
+        });
+
+
+        postsContainer.insertAdjacentHTML('afterbegin', newPost);
+
+
+        postContentInput.value = '';
+        postFormContainer.classList.add('hidden');
+
+
+        initializePostEvents(postsContainer.firstElementChild);
+    });
+
+
+
+
+
+
+
+    function createPostElement(data) {
+        return `
+            <div class="post">
+                <div class="post-header">
+                    <img src="${data.avatar}" alt="User Avatar" class="user-avatar">
+                    <div class="user-info">
+                        <span class="username">${data.username}</span>
+                        <span class="post-time">${data.time}</span>
+                    </div>
+                    <div class="post-category">
+                        <span class="game-tag ${data.game}">${formatGameName(data.game)}</span>
+                        <span class="game-tag ${data.category}">${data.category}</span>
+                    </div>
+                </div>
+                <div class="post-content">
+                    <p>${data.content}</p>
+                </div>
+                <div class="post-stats">
+                    <div class="votes">
+                        <button class="upvote"><span>▲</span></button>
+                        <span class="vote-count">${data.votes}</span>
+                        <button class="downvote"><span>▼</span></button>
+                    </div>
+                    <div class="comments">
+                        <span>💬 ${data.comments} comments</span>
+                    </div>
+                </div>
+                <div class="comment-section hidden"></div>
+            </div>
+        `;
+    }
+
+
+
+
+    function formatGameName(game) {
+        return game.split('-').map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
+    }
+
+
+    
+    function initializePostEvents(postElement) {
+        // comments
+
+
+
+    }
+});
+
+
+
+
+
+function toggleComments(commentButton) {
+    const post = commentButton.closest('.post');
+    const commentSection = post.querySelector('.comment-section');
+    
+
+    commentSection.classList.toggle('hidden');
+
+
+    commentButton.classList.toggle('active');
+    
+
+
+    if (!commentSection.classList.contains('hidden')) {
+        loadComments(post.dataset.postId); 
+    }
+}
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.comments').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleComments(this);
+        });
+    });
+});
+    </script>
+</body>
+</html>

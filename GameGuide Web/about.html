@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | GameGuide Hub</title>
+    <link rel="stylesheet" href="css/ggstyles.css">
+    <style>
+        .about-hero {
+    height: 60vh;
+    background-image: url(/media/homeimg.png); 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+
+.about-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+        
+.about-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.about-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #5cf851;
+}
+
+        
+        .about-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .about-section {
+            margin-bottom: 3rem;
+            background-color: #252525;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        
+        .about-section h2 {
+            color: #4CAF50;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .team-member {
+            background-color: #1e1e1e;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 3px solid #4CAF50;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline {
+            position: relative;
+            margin: 2rem 0;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #4CAF50;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #4CAF50;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"> <h4 style="color:#4CAF50;">GG<span style="color:#ffffff;">uide</span></h4> </div>
+        <nav>
+            <ul>
+                <li><a href="GameGuide.html">Home</a></li>
+                <li><a href="guidepage.html">Guides</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="about.html" class ="active">About</a></li>
+                <li><a href="GameGuide.html#contacts">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="login-btn" onclick="location.href='login.html'">Log in</button>
+            <button class="register-btn" onclick="location.href='register.html'">Join for Free</button>
+        </div>
+    </header>
+
+    <section class="about-hero">
+        <div class="hero-content">
+            <h1>About Game Guide</h1>
+            <p>Your ultimate destination for comprehensive game guides and strategies.</p>
+    </section>
+
+    <main class="about-container">
+        <section class="about-section">
+            <h2>Our Mission</h2>
+            <p>At GameGuide Hub, we're passionate about helping gamers of all skill levels enhance their gaming experience. Our mission is to provide high-quality, accurate, and easy-to-follow guides that help players overcome challenges, discover secrets, and master their favorite games.</p>
+            <p>We believe that gaming should be enjoyable for everyone, whether you're a casual player looking for basic tips or a hardcore gamer seeking advanced strategies.</p>
+        </section>
+
+        <section class="about-section">
+    <h2>By The Numbers</h2>
+    <div class="dashboard-container">
+
+
+        <div class="stat-card">
+            <div class="stat-icon">📚</div>
+            <div class="stat-content">
+                <div class="stat-number" data-target="500">0</div>
+                <div class="stat-label">Game Guides</div>
+            </div>
+            <div class="stat-progress">
+                <div class="progress-bar" style="width: 90%"></div>
+            </div>
+        </div>
+        
+
+
+        <div class="stat-card">
+            <div class="stat-icon">👥</div>
+            <div class="stat-content">
+                <div class="stat-number" data-target="1000">0</div>
+                <div class="stat-label">Monthly Visitors (K)</div>
+            </div>
+            <div class="stat-progress">
+                <div class="progress-bar" style="width: 75%"></div>
+            </div>
+        </div>
+        
+
+
+        <div class="stat-card">
+            <div class="stat-icon">🎮</div>
+            <div class="stat-content">
+                <div class="stat-number" data-target="50">0</div>
+                <div class="stat-label">Games Covered</div>
+            </div>
+            <div class="stat-progress">
+                <div class="progress-bar" style="width: 60%"></div>
+            </div>
+        </div>
+        
+
+
+        <div class="stat-card">
+            <div class="stat-icon">✍️</div>
+            <div class="stat-content">
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">Contributors</div>
+            </div>
+            <div class="stat-progress">
+                <div class="progress-bar" style="width: 85%"></div>
+            </div>
+        </div>
+    </div>
+    
+
+
+<div class="charts-container">  
+<div class="chart-box">
+    <div class="chart-header">
+        <h3>Monthly Growth</h3>
+        <div class="chart-filter">
+            <select class="time-filter">
+                <option value="6">Last 6 Months</option>
+                <option value="12">Last Year</option>
+                <option value="24">Last 2 Years</option>
+            </select>
+        </div>
+    </div>
+    <canvas class="chart" id="growthChart"></canvas>
+    <div class="chart-stats">
+        <div class="stat-item">
+            <span class="stat-value">+32%</span>
+            <span class="stat-label">Visitor Growth</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">+28%</span>
+            <span class="stat-label">Content Growth</span>
+        </div>
+    </div>
+</div>
+        
+
+
+
+
+<div class="chart-box">
+    <div class="chart-header">
+        <h3>Content Distribution</h3>
+        <div class="chart-filter">
+            <select class="content-filter">
+                <option value="all">All Platforms</option>
+                <option value="pc">PC</option>
+                <option value="console">Console</option>
+                <option value="mobile">Mobile</option>
+            </select>
+        </div>
+    </div>
+    <canvas class="chart" id="contentChart"></canvas>
+    <div class="chart-legend" id="contentLegend"></div>
+</div>
+
+
+
+
+        
+        <div class="chart-box">
+            <h3>User Engagement</h3>
+            <canvas class="chart" id="engagementChart"></canvas>
+            <div class="engagement-metrics">
+                <div class="metric">
+                    <span class="metric-value">4.7</span>
+                    <span class="metric-label">Avg. Rating</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">3.2m</span>
+                    <span class="metric-label">Monthly Page views</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-value">8:24</span>
+                    <span class="metric-label">Avg. Time On Site</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+        <section class="about-section">
+            <h2>Milestones</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2019</div>
+                    <p>Founded by a group of passionate gamers frustrated by outdated and incomplete game guides</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020</div>
+                    <p>Launched our community features allowing user contributions and discussions</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2022</div>
+                    <p>Reached 100,000 monthly active users and expanded our team</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <p>Became one of the most trusted game guide resources with over 1 million monthly visitors</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>Meet The Moderators</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="media/mem1.jpg" alt="1">
+                    <h3>Veliona</h3>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="media/mem2.png" alt="2">
+                    <h3>Vollerei</h3>
+                    <p>Lead Guide Writer</p>
+                </div>
+                <div class="team-member">
+                    <img src="media/mem3.png" alt="3">
+                    <h3>Miraiii</h3>
+                    <p>Community Manager</p>
+                </div>
+                <div class="team-member">
+                    <img src="media/mem4.png" alt="4">
+                    <h3>NotLazarus</h3>
+                    <p>Web Developer</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>Our Values</h2>
+            <ul style="line-height: 1.6; padding-left: 1.5rem;">
+                <li><strong>Accuracy:</strong> We verify all our guides through extensive gameplay testing</li>
+                <li><strong>Accessibility:</strong> Guides for players of all skill levels</li>
+                <li><strong>Community:</strong> We value and incorporate community feedback</li>
+                <li><strong>Passion:</strong> Created by gamers, for gamers</li>
+                <li><strong>Innovation:</strong> Constantly improving our platform and content</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="GameGuide.html">Home</a>
+            <a href="guidepage.html">Guides</a>
+            <a href="community.html">Community</a>
+            <a href="about.html">About Us</a>
+            <a href="GameGuide.html#contacts">Contact Us</a>
+        </div>
+        <p class="copyright">© 2025 GameGuide. All rights reserved.</p>
+    </footer>
+</body>
+
+
+
+<script src="js/dashboard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+
+</html>
